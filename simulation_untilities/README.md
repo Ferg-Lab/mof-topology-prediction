@@ -7,13 +7,21 @@ LAMMPS version 22 Jun 2022 ([LAMMPS](https://github.com/lammps/lammps/releases/t
 The following additional packages are required:
 
 `make yes-molecule`
+
 `make yes-extra-fix`
+
 `make yes-extra-compute`
+
 `make yes-fep`
+
 `make yes-body`
+
 `make yes-kspace`
+
 `make yes-manybody`
+
 `make yes-rigid`
+
 `make yes-extra-molecule`
 
 Replace the `fix_ti_spring.cpp` in the `LAMMPS/src` folder with the provided one, which is slightly modified for the final non-equi free energy calculation. Finally compile LAMMPS in the src directory.
