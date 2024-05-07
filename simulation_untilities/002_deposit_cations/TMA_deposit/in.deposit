@@ -1,0 +1,136 @@
+
+log		log.deposit
+
+#------------------------------------------------------------------------------#
+# simulation settings
+#------------------------------------------------------------------------------#
+
+##### simulation variables
+
+variable        seed 	equal  4134
+variable        T       equal  300.0		#K 
+variable        p       equal  0.0 		#bar 
+variable        damp_T  equal  100 		#K 
+variable        damp_P  equal  1000.0		#bar 
+variable        dT      equal  1.0 		#fs 
+variable        kb      equal  0.0019872041 
+
+
+## system setup ## 
+
+units           real
+atom_style      full
+boundary        p p p
+
+pair_style      lj/cut/coul/long 12.500
+bond_style      harmonic
+angle_style     hybrid cosine/periodic fourier
+dihedral_style  harmonic
+improper_style  fourier
+kspace_style 	ewald 1.0e-6
+
+dielectric      1.0
+pair_modify     tail yes mix arithmetic
+special_bonds   lj/coul 0.0 0.0 1.0
+box tilt        large
+read_data       data.${topo} &
+		extra/bond/per/atom 40 &
+		extra/angle/per/atom 40 &
+		extra/dihedral/per/atom 40 &
+		extra/improper/per/atom 40 &
+		extra/special/per/atom 40
+
+include		../MOF_deposit.parm
+include		../${cation}_deposit.parm
+
+#------------------------------------------------------------------------------#
+# deposit cations and minimization
+#------------------------------------------------------------------------------#
+variable	a equal lx
+variable 	b equal ly
+variable 	c equal lz
+variable	aa equal xy
+variable 	bb equal xz
+variable 	cc equal yz
+
+region box prism 0 ${a} 0 ${b} 0 ${c} ${aa} ${bb} ${cc} 
+
+group           Fe type 2
+variable	n_Fe equal count(Fe)
+variable	n_cation equal v_n_Fe/2
+
+reset_timestep  0
+fix             f0 all box/relax aniso 0.0 vmax 0.001
+thermo          10
+thermo_style    custom step lx ly lz press pxx pyy pzz
+min_style       cg
+minimize        1e-25 1e-25 100000 100000
+unfix           f0
+
+reset_timestep  0
+
+dump 		1 all custom 1 EM.lammpstrj id mol type element x y z
+dump_modify	1 element C Fe H S C N H
+
+##### create and deposit the cation
+
+molecule 	${cation} ../${cation}.txt
+fix 		DEPOSIT all deposit ${n_cation} 0 1 ${seed} mol ${cation} region box near 1
+
+run 		100
+
+group 		fram type "<" 5
+group 		cation type ">" 4
+
+unfix 		DEPOSIT
+
+##### Langevin Dynamics
+
+reset_timestep  0
+
+velocity 	all create ${T} ${seed}
+
+fix		f1 all nve
+fix 		f2 all langevin ${T} ${T} ${damp_T} ${seed} zero yes
+compute 	c1 all temp/com
+fix_modify	f2 temp c1
+
+thermo_style 	custom step lx ly lz press pxx pyy pzz
+thermo		4000
+
+run 		100000
+
+#------------------------------------------------------------------------------#
+# equilibration for msd calculation
+#------------------------------------------------------------------------------#
+
+### msd and force constant calculation for the framework ##
+
+fix 		f0 all box/relax tri 0.0 vmax 0.001
+min_style 	cg
+minimize	1e-25 1e-25 100000 100000
+unfix 		f0
+
+reset_timestep  0
+
+#------------------------------------------------------------------------------#
+# final equilibration and save data file
+#------------------------------------------------------------------------------#
+
+reset_timestep	0
+
+thermo		500
+
+dump 		EQUI all custom 1000 Equi_${topo}_${cation}.lammpstrj id mol type element x y z
+
+run		50000
+
+min_style 	cg
+minimize	1e-25 1e-25 100000 100000
+
+write_data 	data.${topo}_${cation} nocoeff
+
+unfix		f1
+unfix		f2
+undump		EQUI
+

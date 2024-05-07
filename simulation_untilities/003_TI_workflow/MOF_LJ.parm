@@ -1,0 +1,60 @@
+#------------------------------------------------------------------------------#
+# parameters for framework
+#------------------------------------------------------------------------------#
+
+## bonded terms
+
+mass	1	12.0107
+mass	2	55.845
+mass	3	1.00794
+mass	4	32.065
+
+bond_coeff	1	192.93815	2.244314	#	Fe3+2	S_3+6
+bond_coeff	2	320.755144	1.74901	#	C_R	S_3+6
+bond_coeff	3	462.655054	1.379256	#	C_R	C_R
+bond_coeff	4	357.440381	1.081418	#	C_R	H_
+
+angle_coeff	1	fourier	131.427607	0.343737	0.374972	0.281246	#	S_3+6	Fe3+2	S_3+6
+angle_coeff	2	fourier	106.220186	0.343737	0.374972	0.281246	#	Fe3+2	S_3+6	Fe3+2
+angle_coeff	3	fourier	115.321348	0.343737	0.374972	0.281246	#	C_R	S_3+6	Fe3+2
+angle_coeff	4	cosine/periodic	105.943006	-1	3	#	C_R	C_R	S_3+6	
+angle_coeff	5	cosine/periodic	111.297508	-1	3	#	C_R	C_R	C_R	
+angle_coeff	6	cosine/periodic	57.289016	-1	3	#	C_R	C_R	H_		
+
+dihedral_coeff	1	1.976424	-1	2	#	X	C_R	S_3+6	X
+dihedral_coeff	2	3.368555	-1	2	#	X	C_R	C_R	X
+
+improper_coeff	1	2	1	-1	0	1	#	C_R	X	X	X
+
+## pairwise 
+
+pair_coeff	1	1	0.105	3.430851	1	12.5
+pair_coeff	2	2	0.013	2.594297	1	12.5
+pair_coeff	3	3	0.044	2.571134	1	12.5
+pair_coeff	4	4	0.274	3.594776	1	12.5
+
+## interatomic pair coeffs are required for fix adapt and fix fep (generated using mixing rule)
+
+pair_coeff	1	2	0.0369459	3.01257	1	12.5
+pair_coeff	1	3	0.0679706	3.00099	1	12.5
+pair_coeff	1	4	0.169617	3.51281	1	12.5
+pair_coeff	1	5	0.105	3.43085	1	12.5
+pair_coeff	1	6	0.0851176	3.34577	1	12.5
+pair_coeff	1	7	0.0679706	3.00099	1	12.5
+pair_coeff	2	3	0.0239165	2.58272	1	12.5
+pair_coeff	2	4	0.0596825	3.09454	1	12.5
+pair_coeff	2	5	0.0369459	3.01257	1	12.5
+pair_coeff	2	6	0.02995	2.92749	1	12.5
+pair_coeff	2	7	0.0239165	2.58271	1	12.5
+pair_coeff	3	4	0.1098	3.08296	1	12.5
+pair_coeff	3	5	0.0679706	3.00099	1	12.5
+pair_coeff	3	6	0.0550999	2.91591	1	12.5
+pair_coeff	3	7	0.044	2.57113	1	12.5
+pair_coeff	4	5	0.169617	3.51281	1	12.5
+pair_coeff	4	6	0.137499	3.42773	1	12.5
+pair_coeff	4	7	0.1098	3.08295	1	12.5
+pair_coeff	5	6	0.0851176	3.34577	1	12.5
+pair_coeff	5	7	0.0679706	3.00099	1	12.5
+pair_coeff	6	7	0.0550999	2.91591	1	12.5
+
+						

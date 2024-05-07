@@ -1,0 +1,87 @@
+#------------------------------------------------------------------------------#
+# simulation settings
+#------------------------------------------------------------------------------#
+
+log		log.bonded_${lambda}
+
+##### simulation variables
+
+variable        seed 	equal  4134
+variable        T       equal  300.0		#K 
+variable        p       equal  0.0 		#bar 
+variable        damp_T  equal  100 		#K 
+variable        damp_P  equal  1000.0		#bar 
+variable        dT      equal  1.0 		#fs 
+
+## system setup ## 
+
+units           real
+atom_style      full
+boundary        p p p
+
+pair_style      zero 12.5 nocoeff
+bond_style      harmonic
+angle_style     hybrid cosine/periodic fourier
+dihedral_style  harmonic
+improper_style  fourier
+
+dielectric      1.0
+special_bonds   lj/coul 0.0 0.0 1.0
+box tilt        large
+
+read_data       ../data.${topo}_${cation}
+include 	../../MOF_bonded.parm
+include 	../../${cation}_bonded.parm
+
+
+group		fram type < 5
+group		cation type > 4
+group		center type 6
+
+fix		SPRING fram spring/self 10 	# harmonic restraint to framework
+fix		SPRING2 center spring/self 1
+
+group           Fe type 2
+variable	n_Fe equal count(Fe)
+variable	fu equal v_n_Fe/4
+print		"${fu}" file fu.dat
+
+#------------------------------------------------------------------------------#
+# equilibration
+#------------------------------------------------------------------------------#
+
+reset_timestep	0
+
+thermo_style	custom step etotal ke pe temp press density vol ebond eangle edihed eimp emol 
+thermo 		5000
+velocity 	all create ${T} ${seed}
+
+fix		f1 all nve
+fix 		f2 all langevin ${T} ${T} ${damp_T} ${seed} zero yes
+compute 	c1 all temp/com
+fix_modify	f2 temp c1
+
+run		400000
+
+#------------------------------------------------------------------------------#
+# sampling
+#------------------------------------------------------------------------------#
+
+reset_timestep	0
+
+compute 	MOF_pe_a fram pe/atom bond angle dihedral improper	# per atom quantity
+compute		MOF_pe all reduce sum c_MOF_pe_a	# reduce to bulk quantity
+
+variable 	dudlam	equal c_MOF_pe/${lambda}/${fu}
+
+fix		BOND all ave/time 250 1 250 v_dudlam file bond_${lambda}.lmp
+
+thermo_style	custom step etotal ke pe temp press density vol c_MOF_pe v_dudlam 
+thermo 		250
+
+dump            run_custom_data all custom 250 bond_dump_all_${lambda} id mol type xu yu zu # for rerun purpose if needed
+dump_modify     run_custom_data sort id
+
+run 		500000
+
+write_data	data.restart_${topo}_${cation}_${lambda} nocoeff

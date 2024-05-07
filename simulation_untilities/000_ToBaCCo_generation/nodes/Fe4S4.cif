@@ -1,0 +1,59 @@
+data_Fe4S4
+_audit_creation_date              2023-02-07
+_audit_creation_method            'Materials Studio'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    20.0000
+_cell_length_b                    20.0000
+_cell_length_c                    20.0000
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 90.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+_atom_site_charge
+Fe1    Fe    0.34706   0.24927   0.46932   0.10010  Uiso   1.00 0.2491
+S2     S     0.36210   0.23424   0.58215   0.10010  Uiso   1.00 -0.1242
+X3     S     0.42190   0.17443   0.42813   0.10010  Uiso   1.00 -0.6955
+Fe4    Fe    0.24927   0.34706   0.46932   0.10010  Uiso   1.00 0.2491
+S5     S     0.23424   0.36210   0.58215   0.10010  Uiso   1.00 -0.1242
+X6     S     0.17443   0.42190   0.42813   0.10010  Uiso   1.00 -0.6955
+Fe7    Fe    0.34706   0.34706   0.56707   0.10010  Uiso   1.00 0.2491
+X8     S     0.42190   0.42190   0.60825   0.10010  Uiso   1.00 -0.6955
+Fe9    Fe    0.24927   0.24927   0.56707   0.10010  Uiso   1.00 0.2491
+X10    S     0.17443   0.17443   0.60825   0.10010  Uiso   1.00 -0.6955
+S11    S     0.36167   0.36167   0.45413   0.10010  Uiso   1.00 -0.1242
+S12    S     0.23466   0.23466   0.45413   0.10010  Uiso   1.00 -0.1242
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+Fe1    S11     2.287   .     S
+Fe1    S12     2.287   .     S
+Fe1    S2      2.296   .     S
+Fe1    X3      2.271   .     S
+S2     Fe9     2.296   .     S
+S2     Fe7     2.296   .     S
+Fe4    S12     2.287   .     S
+Fe4    S11     2.287   .     S
+Fe4    S5      2.296   .     S
+Fe4    X6      2.271   .     S
+S5     Fe7     2.296   .     S
+S5     Fe9     2.296   .     S
+Fe7    X8      2.271   .     S
+Fe7    S11     2.296   .     S
+Fe9    X10     2.271   .     S
+Fe9    S12     2.296   .     S
