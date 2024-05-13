@@ -1,9 +1,8 @@
-
-log		log.deposit
-
 #------------------------------------------------------------------------------#
 # simulation settings
 #------------------------------------------------------------------------------#
+
+log		log.deposit
 
 ##### simulation variables
 
@@ -14,7 +13,7 @@ variable        damp_T  equal  100 		#K
 variable        damp_P  equal  1000.0		#bar 
 variable        dT      equal  1.0 		#fs 
 variable        kb      equal  0.0019872041 
-
+ 
 
 ## system setup ## 
 
@@ -46,18 +45,20 @@ include		../${cation}_deposit.parm
 #------------------------------------------------------------------------------#
 # deposit cations and minimization
 #------------------------------------------------------------------------------#
-variable	a equal lx
-variable 	b equal ly
-variable 	c equal lz
+variable	a equal lx-2
+variable 	b equal ly-2
+variable 	c equal lz-2
 variable	aa equal xy
 variable 	bb equal xz
 variable 	cc equal yz
 
-region box prism 0 ${a} 0 ${b} 0 ${c} ${aa} ${bb} ${cc} 
+region box prism 2 ${a} 2 ${b} 2 ${c} ${aa} ${bb} ${cc} 
 
 group           Fe type 2
 variable	n_Fe equal count(Fe)
 variable	n_cation equal v_n_Fe/2
+variable	n_fu equal v_n_Fe/4
+print		"${n_fu}" file fu.dat
 
 reset_timestep  0
 fix             f0 all box/relax aniso 0.0 vmax 0.001
@@ -68,21 +69,23 @@ minimize        1e-25 1e-25 100000 100000
 unfix           f0
 
 reset_timestep  0
-
-dump 		1 all custom 1 EM.lammpstrj id mol type element x y z
-dump_modify	1 element C Fe H S C N H
-
 ##### create and deposit the cation
 
 molecule 	${cation} ../${cation}.txt
 fix 		DEPOSIT all deposit ${n_cation} 0 1 ${seed} mol ${cation} region box near 1
 
-run 		100
+run 		1000
 
 group 		fram type "<" 5
 group 		cation type ">" 4
 
 unfix 		DEPOSIT
+
+##### Energy Minimization
+
+reset_timestep	0
+min_style 	cg
+minimize	1e-25 1e-25 100000 100000
 
 ##### Langevin Dynamics
 
@@ -98,7 +101,7 @@ fix_modify	f2 temp c1
 thermo_style 	custom step lx ly lz press pxx pyy pzz
 thermo		4000
 
-run 		100000
+run 		400000
 
 #------------------------------------------------------------------------------#
 # equilibration for msd calculation
@@ -113,17 +116,84 @@ unfix 		f0
 
 reset_timestep  0
 
+group           g1 type 1
+group           g2 type 2
+group           g3 type 3
+group           g4 type 4
+
+compute         cmsd1 g1 msd com yes average no
+compute         cmsd2 g2 msd com yes average no
+compute         cmsd3 g3 msd com yes average no
+compute         cmsd4 g4 msd com yes average no
+
+thermo_style    custom step c_c1 lx ly lz xy xz yz c_cmsd1[4] c_cmsd2[4] c_cmsd3[4] c_cmsd4[4]
+
+run             50000
+
+reset_timestep  0
+
+fix             fmsd1 all ave/time 1 1 50000 c_cmsd1[4] mode scalar file avg_msd1.dat
+fix             fmsd2 all ave/time 1 1 50000 c_cmsd2[4] mode scalar file avg_msd2.dat
+fix             fmsd3 all ave/time 1 1 50000 c_cmsd3[4] mode scalar file avg_msd3.dat
+fix             fmsd4 all ave/time 1 1 50000 c_cmsd4[4] mode scalar file avg_msd4.dat
+
+run             50000
+
+#------------------------------------------------------------------------------#
+# calculate force constants
+#------------------------------------------------------------------------------#
+
+### save volume
+
+variable volume equal vol
+print "${volume}" file volume.dat
+
+### initial force constants = (3 * kb * T)/msd
+
+variable         msd1 equal f_fmsd1
+variable         k01 equal (3*${kb}*${T})/${msd1}
+variable         msd2 equal f_fmsd2
+variable         k02 equal (3*${kb}*${T})/${msd2}
+variable         msd3 equal f_fmsd3
+variable         k03 equal (3*${kb}*${T})/${msd3}
+variable         msd4 equal f_fmsd4
+variable         k04 equal (3*${kb}*${T})/${msd4}
+
+variable n_1 equal count(g1)
+variable n_2 equal count(g2)
+variable n_3 equal count(g3)
+variable n_4 equal count(g4)
+
+variable m_1 equal mass(g1)/v_n_1
+variable m_2 equal mass(g2)/v_n_2
+variable m_3 equal mass(g3)/v_n_3
+variable m_4 equal mass(g4)/v_n_4
+
+print "1 ${n_1} ${m_1} ${k01} ${msd1}" append force_k_ori.dat
+print "2 ${n_2} ${m_2} ${k02} ${msd2}" append force_k_ori.dat
+print "3 ${n_3} ${m_3} ${k03} ${msd3}" append force_k_ori.dat
+print "4 ${n_4} ${m_4} ${k04} ${msd4}" append force_k_ori.dat
+
+print "1 ${n_1} ${m_1} 10 ${msd1}" append force_k.dat
+print "2 ${n_2} ${m_2} 10 ${msd2}" append force_k.dat
+print "3 ${n_3} ${m_3} 10 ${msd3}" append force_k.dat
+print "4 ${n_4} ${m_4} 10 ${msd4}" append force_k.dat
+
+unfix fmsd1
+unfix fmsd2
+unfix fmsd3
+unfix fmsd4
+
 #------------------------------------------------------------------------------#
 # final equilibration and save data file
 #------------------------------------------------------------------------------#
 
 reset_timestep	0
 
+thermo_style 	custom step temp press pe ke etotal evdwl etail ecoul elong epair ebond eangle edihed eimp emol density vol
 thermo		500
-
-dump 		EQUI all custom 1000 Equi_${topo}_${cation}.lammpstrj id mol type element x y z
-
-run		50000
+ 
+run		200000
 
 min_style 	cg
 minimize	1e-25 1e-25 100000 100000
@@ -132,5 +202,3 @@ write_data 	data.${topo}_${cation} nocoeff
 
 unfix		f1
 unfix		f2
-undump		EQUI
-
