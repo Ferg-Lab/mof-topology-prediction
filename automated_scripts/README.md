@@ -7,7 +7,7 @@
 
 pip install git+https://github.com/aniruddha-seal/PORMAKE.git 
 
-This version allows the partial charges on the building nodes.
+This version allows the partial charges assignment on the building nodes.
 
 ### LAMMPS-Interface is used to assign force field parameters
 
@@ -33,18 +33,18 @@ Replace the `fix_ti_spring.cpp` in the `LAMMPS/src` folder with the provided one
 
 Export the path to LAMMPS for the code to run equilibration automatically for you. Otherwise, you can run simulations manually using the input files.
 
-export LAMMPS_PATH='/Path/to/LAMMPS/src/lmp_mpi'
+export LAMMPS_PATH='/Path/to/LAMMPS/src/lmp_machine'
 
 ## MOF Generation and Equilibration
 
 The `gen` command is used to generate a MOF polymorph, for which a linker and a metal node in xyz format are required. You can generate bare frameworks or specify a small molecule to add into an ionic MOF. If the name of the small molecule is available in the `small_molecule` folder (DMA, TMA, TEA, TPA, TPP, MPA, MNP), then the molecule files for small molecules will be created along with the generated MOF. Otherwise, you would need to provide a small molecule in cif format with atomic charges.
 
-The `run_equi` command generates inputs for the small molecule deposition and equilibration. After equilibration, an equilibrated structure in cif format is provided along with the potential energy at 300 K and 100 K for preliminary screening.
+The `run_equi` command generates inputs for the small molecule deposition and equilibration. After equilibration, an equilibrated structure in cif format is provided along with the potential energy at 300 K and 0 K for preliminary screening.
 
 Example:
 
-python main.py gen --node 4c_In --linker 3c_BTB --topos pto --mol DMA
-python main.py run_equi --mof pto-4c_In-3c_BTB --mol DMA --n_mol 6 --nvt --npt --equi_time 50000 --temp 300 --pressure 0.0
+`python main.py gen --node 4c_In --linker 3c_BTB --topos pto --mol DMA`
+`python main.py run_equi --mof pto-4c_In-3c_BTB --mol DMA --n_mol 6 --nvt --npt --equi_time 50000 --temp 300 --pressure 0.0`
 
 This is a checkpoint where you can stop and use the equilibrated structures and potential energies to rank the thermodynamic stability of the MOFs.
 
@@ -54,7 +54,7 @@ The equilibrated structures can be used for subsequent free energy calculations.
 
 Example:
 
-python main.py run_fe --mof pto-4c_In-3c_BTB --mol DMA --center 7
+`python main.py run_fe --mof pto-4c_In-3c_BTB --mol DMA --center 7`
 
 This will create a list of input files for running free energy simulations and create a folder for storing the output data.
 
