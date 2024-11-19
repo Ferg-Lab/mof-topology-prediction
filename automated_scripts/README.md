@@ -50,14 +50,14 @@ This is a checkpoint where you can stop and use the equilibrated structures and 
 
 ## Free Energy Calculation Workflow
 
-The equilibrated structures can be used for subsequent free energy calculations. The `run_fe` function is used to generate the input files for calculating the free energies of the MOFs. If a small molecule is used, it is required to specify the atom type of the molecules from the LAMMPS `emin` data file.
+The equilibrated structures can be used for subsequent free energy calculations. The `run_fe` function is used to generate the input files for calculating the free energies of the MOFs. If a small molecule is used, it is required to specify the atom type of the center atom of the molecules from the LAMMPS `emin` data file.
 
 Example:
 
 `python main.py run_fe --mof pto-4c_In-3c_BTB --mol DMA --center 7`
 
-This will create a list of input files for running free energy simulations and create a folder for storing the output data.
+This will create a list of input files for running free energy simulations and create a folder for storing the output data. Run the free energy calculations manually using the input files.
 
 ## Free Energy Integration
 
-The codes are not available yet and are coming soon. (the initial codes are stored in `simulation_utilities/004_post-processing-tools`.)
+Once you obtain all the output files, use the initial codes in `simulation_utilities/004_post-processing-tools` folder to integrate the free energies. 
