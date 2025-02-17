@@ -1,0 +1,49 @@
+### Parameters for Equilibration ### 
+
+### Parameters for MOF ### 
+
+mass 1 65.380000000
+mass 2 14.006700000
+mass 3 12.010700000
+mass 4 1.007940000
+mass 5 12.010700000
+
+
+bond_coeff 1 165.837318 1.881712
+bond_coeff 2 663.718927 1.345073
+bond_coeff 3 369.943935 1.486000
+bond_coeff 4 462.655054 1.379256
+bond_coeff 5 357.440381 1.081418
+bond_coeff 6 331.069389 1.109401
+
+angle_coeff 1 fourier 197.524216 0.343737 0.374972 0.281246
+angle_coeff 2 cosine/periodic 45.889625 -1 3
+angle_coeff 3 cosine/periodic 120.000516 -1 3
+angle_coeff 4 cosine/periodic 212.442573 -1 3
+angle_coeff 5 cosine/periodic 136.548728 -1 3
+angle_coeff 6 cosine/periodic 153.699352 -1 3
+angle_coeff 7 cosine/periodic 79.786967 -1 3
+angle_coeff 8 cosine/periodic 57.289016 -1 3
+angle_coeff 9 fourier 121.777217 0.343737 0.374972 0.281246
+angle_coeff 10 fourier 75.498766 0.343737 0.374972 0.281246
+
+dihedral_coeff 1 3.368555 -1 2
+dihedral_coeff 2 0.166667 1 3
+
+improper_coeff 1 2.000000 1.000000 -1.000000 0.000000 0
+
+pair_coeff 1 1 0.124 2.46155 1 12.5
+pair_coeff 1 2 0.0924986 2.86112 1 12.5
+pair_coeff 1 3 0.114105 2.9462 1 12.5
+pair_coeff 1 4 0.0738647 2.51634 1 12.5
+pair_coeff 1 5 0.114105 2.9462 1 12.5
+pair_coeff 2 2 0.069 3.26069 1 12.5
+pair_coeff 2 3 0.0851176 3.34577 1 12.5
+pair_coeff 2 4 0.0550999 2.91591 1 12.5
+pair_coeff 2 5 0.0851176 3.34577 1 12.5
+pair_coeff 3 3 0.105 3.43085 1 12.5
+pair_coeff 3 4 0.0679706 3.00099 1 12.5
+pair_coeff 3 5 0.105 3.43085 1 12.5
+pair_coeff 4 4 0.044 2.57113 1 12.5
+pair_coeff 4 5 0.0679706 3.00099 1 12.5
+pair_coeff 5 5 0.105 3.43085 1 12.5

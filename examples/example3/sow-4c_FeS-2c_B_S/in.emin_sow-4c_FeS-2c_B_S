@@ -1,0 +1,166 @@
+
+log		log.deposit
+
+#------------------------------------------------------------------------------#
+# simulation settings
+#------------------------------------------------------------------------------#
+
+##### simulation variables
+
+variable        seed 	equal  301360
+variable        T       equal  300	    #K 
+variable        p       equal  0.0 	#bar 
+variable        damp_T  equal  100 		  	#K 
+variable        damp_P  equal  1000.0	  	#bar 
+variable        dT      equal  1.0 		 	#fs 
+variable        kb      equal  0.0019872041 
+
+## system setup ## 
+
+units           real
+atom_style      full
+boundary        p p p
+
+pair_style      lj/cut/coul/long 12.500
+bond_style      harmonic
+angle_style     hybrid fourier cosine/periodic
+dihedral_style  harmonic
+improper_style  fourier
+kspace_style 	ewald 0.000001
+
+dielectric      1.0
+pair_modify     tail yes mix arithmetic
+special_bonds   lj/coul 0.0 0.0 1.0
+read_data       data.sow-4c_FeS-2c_B_S_new &
+				extra/bond/per/atom 40 &
+				extra/angle/per/atom 40 &
+				extra/dihedral/per/atom 40 &
+				extra/improper/per/atom 40 &
+				extra/special/per/atom 40
+
+include			emin_sow-4c_FeS-2c_B_S.param
+
+reset_timestep  0
+fix             f0 all box/relax aniso ${p} vmax 0.001
+thermo          10
+thermo_style    custom step lx ly lz press pxx pyy pzz
+min_style       cg
+minimize        1e-10 1e-10 100000 100000
+unfix           f0
+
+
+#------------------------------------------------------------------------------#
+# deposit cations and minimization
+#------------------------------------------------------------------------------#
+reset_timestep  0
+
+variable		a equal lx-3
+variable 		b equal ly-3
+variable 		c equal lz-3
+variable		aa equal xy
+variable 		bb equal xz
+variable 		cc equal yz
+
+region 			box prism 3 ${a} 3 ${b} 3 ${c} ${aa} ${bb} ${cc} 
+
+variable		n_cation equal 16
+
+##### create and deposit the cation
+
+molecule 		TMA TMA.txt offset 4 4 6 2 1
+fix 			DEPOSIT all deposit 16 0 1 ${seed} mol TMA region box near 1
+
+run 			160
+
+unfix 			DEPOSIT
+
+reset_timestep  0
+fix             f0 all box/relax aniso ${p} vmax 0.001
+thermo          10
+thermo_style    custom step lx ly lz press pxx pyy pzz
+min_style       cg
+minimize        1e-10 1e-10 100000 100000
+unfix           f0
+
+
+
+##### NVT Dynamics
+
+reset_timestep  0
+
+velocity 		all create ${T} ${T}
+
+fix		 		f1 all nve
+fix 			f2 all langevin ${T} ${T} ${damp_T} ${seed} zero yes
+compute 		c1 all temp/com
+fix_modify		f2 temp c1
+
+thermo_style 	custom step pe ke etotal evdwl ecoul epair emol econserve density vol
+thermo 	 	 	5000
+
+run 		 	50000
+
+unfix 		 	f1
+unfix 		 	f2
+
+#------------------------------------------------------------------------------#
+# final equilibration and save data file
+#------------------------------------------------------------------------------#
+### save volume
+reset_timestep  0
+min_style 		cg
+minimize		1e-15 1e-15 100000 100000
+
+reset_timestep  0
+fix             f0 all box/relax tri ${p} vmax 0.001
+thermo          10
+thermo_style    custom step lx ly lz press pxx pyy pzz
+min_style       cg
+minimize        1e-15 1e-15 100000 100000
+unfix           f0
+
+min_style 		cg
+minimize		1e-15 1e-15 100000 100000
+
+variable 		volume equal vol
+print 		 	"The volume of sow-4c_FeS-2c_B_S: ${volume}" file VOLUME.dat
+
+write_data 		data.emin_sow-4c_FeS-2c_B_S_TMA pair ij
+
+### For strain energy
+reset_timestep  0
+
+
+fix				f1 all nve
+fix 			f2 all langevin 0 0 ${damp_T} ${seed}
+
+thermo_style 	custom step pe ke etotal evdwl ecoul epair emol econserve density vol
+thermo 	 	 	5000
+
+variable		strain equal pe
+fix 			STRAIN all ave/time 1 100 100 v_strain file STRAIN.dat
+
+run 			100
+
+unfix			f1
+unfix			f2
+unfix			STRAIN
+
+### For potential energy
+reset_timestep	0
+velocity 		all create ${T} ${T}
+fix 		 	f1 all nve
+fix 		 	f2 all langevin ${T} ${T} ${damp_T} ${seed} zero yes
+fix_modify 		f2 temp c1
+thermo_style 	custom step pe ke etotal evdwl ecoul epair emol econserve density vol
+thermo 	 	 	5000
+variable 	 	potential equal pe
+fix				PE all ave/time 1 50000 50000 v_potential file PE.dat
+
+run				50000
+
+unfix			f1
+unfix			f2
+unfix			PE
+
+

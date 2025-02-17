@@ -1,0 +1,92 @@
+
+log		log.hr
+
+#------------------------------------------------------------------------------#
+# simulation settings
+#------------------------------------------------------------------------------#
+
+##### simulation variables
+
+variable        seed 	equal  44699
+variable        T       equal  300	    #K 
+variable        p       equal  0.0 	#bar 
+variable        damp_T  equal  100 		  	#K 
+variable        damp_P  equal  1000.0	  	#bar 
+variable        dT      equal  1.0 		 	#fs 
+variable        kb      equal  0.0019872041 
+
+## system setup ## 
+
+units           real
+atom_style      full
+boundary        p p p
+
+pair_style      lj/cut/coul/long 12.500
+bond_style      harmonic
+angle_style     hybrid fourier cosine/periodic
+dihedral_style  harmonic
+improper_style  fourier
+kspace_style 	ewald 0.000001
+
+dielectric 	 	1.0
+pair_modify 	tail yes mix arithmetic
+special_bonds 	lj/coul 0.0 0.0 1.0
+
+read_data 	 	../data.emin_sow-4c_FeS-2c_B_S_TMA_fe
+include 	 	../non_bonded_sow-4c_FeS-2c_B_S.param
+
+group			fram type < 5
+group			cation type > 4
+group			center type 6
+
+#------------------------------------------------------------------------------#
+# ti/spring definition
+#------------------------------------------------------------------------------#
+
+reset_timestep	0
+
+variable		t_s equal 1000000
+variable		t_eq equal 500000
+
+variable        t_eq equal ${t_eq}-1
+variable        t_s equal ${t_s}+1
+
+fix             fs1 fram ti/spring 10 ${t_s} ${t_eq} function 2
+fix             fs2 center ti/spring 1 ${t_s} ${t_eq} function 2
+
+variable        dE equal f_fs1+f_fs2
+variable        lambda equal f_fs1[1]
+
+fix				f1 all nve
+fix 			f2 all langevin ${T} ${T} ${damp_T} ${seed} zero yes
+compute 		c1 all temp/com
+fix_modify		f2 temp c1
+
+thermo_style	custom step etotal ke pe temp press density vol evdwl etail ecoul elong epair f_fs1 f_fs2
+thermo 			1000
+
+#------------------------------------------------------------------------------#
+# switching
+#------------------------------------------------------------------------------#
+
+### forward integration, save to forward.dat
+
+run             ${t_eq}
+fix             f4 all print 1 "${dE} ${lambda}" title "# dE lambda" &
+                screen no file forward.dat
+run             ${t_s}
+unfix           f4
+
+### backward integration, save to backward.dat
+
+run             ${t_eq}
+fix             f4 all print 1 "${dE} ${lambda}" title "# dE lambda" &
+                screen no file backward.dat
+run             ${t_s}
+unfix           f4
+
+print			"done" file done.dat
+
+unfix			f1
+unfix			f2
+

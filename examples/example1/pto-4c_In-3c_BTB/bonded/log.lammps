@@ -1,0 +1,4 @@
+LAMMPS (23 Jun 2022)
+
+log		log.bonded_${lambda}
+log		log.bonded_1e-08

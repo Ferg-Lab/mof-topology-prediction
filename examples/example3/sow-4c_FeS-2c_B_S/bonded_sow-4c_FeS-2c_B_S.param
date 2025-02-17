@@ -1,0 +1,58 @@
+### Parameters for Equilibration ###
+
+### Parameters for MOF ###
+
+mass 1 55.845000000
+mass 2 32.065000000
+mass 3 12.010700000
+mass 4 1.007940000
+
+
+variable b1 equal ${lambda}*192.938150
+bond_coeff 1 ${b1} 2.244314
+variable b2 equal ${lambda}*462.655054
+bond_coeff 2 ${b2} 1.379256
+variable b3 equal ${lambda}*357.440381
+bond_coeff 3 ${b3} 1.081418
+variable b4 equal ${lambda}*320.755144
+bond_coeff 4 ${b4} 1.749010
+
+variable a1 equal ${lambda}*131.427607
+angle_coeff 1 fourier ${a1} 0.343737 0.374972 0.281246
+variable a2 equal ${lambda}*106.220186
+angle_coeff 2 fourier ${a2} 0.343737 0.374972 0.281246
+variable a3 equal ${lambda}*111.297508
+angle_coeff 3 cosine/periodic ${a3} -1 3
+variable a4 equal ${lambda}*57.289016
+angle_coeff 4 cosine/periodic ${a4} -1 3
+variable a5 equal ${lambda}*105.943006
+angle_coeff 5 cosine/periodic ${a5} -1 3
+variable a6 equal ${lambda}*115.321348
+angle_coeff 6 fourier ${a6} 0.343737 0.374972 0.281246
+
+variable d1 equal ${lambda}*3.368555
+dihedral_coeff 1 ${d1} -1 2
+variable d2 equal ${lambda}*1.976424
+dihedral_coeff 2 ${d2} 1 2
+
+variable i1 equal ${lambda}*2.000000
+improper_coeff 1 ${i1} 1.000000 -1.000000 0.000000 0
+
+### Parameters for Molecule ###
+
+mass 5 14.006700000
+mass 6 12.010700000
+mass 7 1.007940000
+
+
+bond_coeff 5 528.634538 1.451071
+bond_coeff 6 331.069389 1.109401
+
+angle_coeff 7 fourier 260.869388 0.317506 0.313225 0.272502
+angle_coeff 8 fourier 169.780468 0.343737 0.374972 0.281246
+angle_coeff 9 fourier 75.498766 0.343737 0.374972 0.281246
+
+dihedral_coeff 3 0.054250 1 3
+
+
+pair_coeff * *

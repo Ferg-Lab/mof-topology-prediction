@@ -1,0 +1,4 @@
+LAMMPS (23 Jun 2022)
+
+log		log.lj_${lambda}
+log		log.lj_0

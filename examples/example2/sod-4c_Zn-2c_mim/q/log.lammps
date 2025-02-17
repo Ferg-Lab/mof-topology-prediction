@@ -1,0 +1,4 @@
+LAMMPS (23 Jun 2022)
+
+log		log.q_${lambda}
+log		log.q_1e-08

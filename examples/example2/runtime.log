@@ -1,0 +1,124 @@
+[2025-02-10 22:12:20 (DEBUG) utils.py:296] There are bonds in building block xyz. Reading...
+[2025-02-10 22:12:20 (DEBUG) utils.py:296] There are bonds in building block xyz. Reading...
+[2025-02-10 22:12:20 (DEBUG) database.py:15] Default topology DB is loaded.
+[2025-02-10 22:12:20 (DEBUG) database.py:22] Default building block DB is loaded.
+[2025-02-10 22:12:20 (DEBUG) database.py:85] Topology is loaded from pickle.
+[2025-02-10 22:12:20 (DEBUG) builder.py:94] Builder.build starts.
+[2025-02-10 22:12:20 (DEBUG) locator.py:50] n_slices: 5
+[2025-02-10 22:12:20 (DEBUG) locator.py:50] n_slices: 5
+[2025-02-10 22:12:20 (INFO) builder.py:150] == Min RMSD of (node type: 0, node bb: 4c_Zn): 1.51E-01
+[2025-02-10 22:12:20 (DEBUG) locator.py:50] n_slices: 3
+[2025-02-10 22:12:20 (INFO) builder.py:158] Pre-location at node slot 0, (node type: 0, node bb: 4c_Zn), RMSD: 1.79E-01
+[2025-02-10 22:12:20 (DEBUG) locator.py:50] n_slices: 5
+[2025-02-10 22:12:20 (INFO) builder.py:173] RMSD > MIN_RMSD*1.01, relocate Node 0 with 216 trial orientations, RMSD: 1.51E-01
+[2025-02-10 22:12:20 (DEBUG) locator.py:50] n_slices: 3
+[2025-02-10 22:12:20 (INFO) builder.py:158] Pre-location at node slot 1, (node type: 0, node bb: 4c_Zn), RMSD: 1.79E-01
+[2025-02-10 22:12:20 (DEBUG) locator.py:50] n_slices: 5
+[2025-02-10 22:12:20 (INFO) builder.py:173] RMSD > MIN_RMSD*1.01, relocate Node 1 with 216 trial orientations, RMSD: 1.51E-01
+[2025-02-10 22:12:20 (DEBUG) locator.py:50] n_slices: 3
+[2025-02-10 22:12:20 (INFO) builder.py:158] Pre-location at node slot 2, (node type: 0, node bb: 4c_Zn), RMSD: 1.79E-01
+[2025-02-10 22:12:20 (DEBUG) locator.py:50] n_slices: 5
+[2025-02-10 22:12:20 (INFO) builder.py:173] RMSD > MIN_RMSD*1.01, relocate Node 2 with 216 trial orientations, RMSD: 1.51E-01
+[2025-02-10 22:12:20 (DEBUG) locator.py:50] n_slices: 3
+[2025-02-10 22:12:20 (INFO) builder.py:158] Pre-location at node slot 3, (node type: 0, node bb: 4c_Zn), RMSD: 1.51E-01
+[2025-02-10 22:12:20 (DEBUG) locator.py:50] n_slices: 3
+[2025-02-10 22:12:20 (INFO) builder.py:158] Pre-location at node slot 4, (node type: 0, node bb: 4c_Zn), RMSD: 1.79E-01
+[2025-02-10 22:12:20 (DEBUG) locator.py:50] n_slices: 5
+[2025-02-10 22:12:20 (INFO) builder.py:173] RMSD > MIN_RMSD*1.01, relocate Node 4 with 216 trial orientations, RMSD: 1.51E-01
+[2025-02-10 22:12:20 (DEBUG) locator.py:50] n_slices: 3
+[2025-02-10 22:12:20 (INFO) builder.py:158] Pre-location at node slot 5, (node type: 0, node bb: 4c_Zn), RMSD: 1.51E-01
+[2025-02-10 22:12:20 (DEBUG) locator.py:50] n_slices: 3
+[2025-02-10 22:12:20 (INFO) builder.py:158] Pre-location at node slot 6, (node type: 0, node bb: 4c_Zn), RMSD: 1.79E-01
+[2025-02-10 22:12:20 (DEBUG) locator.py:50] n_slices: 5
+[2025-02-10 22:12:20 (INFO) builder.py:173] RMSD > MIN_RMSD*1.01, relocate Node 6 with 216 trial orientations, RMSD: 1.51E-01
+[2025-02-10 22:12:20 (DEBUG) locator.py:50] n_slices: 3
+[2025-02-10 22:12:20 (INFO) builder.py:158] Pre-location at node slot 7, (node type: 0, node bb: 4c_Zn), RMSD: 1.51E-01
+[2025-02-10 22:12:20 (DEBUG) locator.py:50] n_slices: 3
+[2025-02-10 22:12:20 (INFO) builder.py:158] Pre-location at node slot 8, (node type: 0, node bb: 4c_Zn), RMSD: 1.79E-01
+[2025-02-10 22:12:20 (DEBUG) locator.py:50] n_slices: 5
+[2025-02-10 22:12:20 (INFO) builder.py:173] RMSD > MIN_RMSD*1.01, relocate Node 8 with 216 trial orientations, RMSD: 1.51E-01
+[2025-02-10 22:12:20 (DEBUG) locator.py:50] n_slices: 3
+[2025-02-10 22:12:20 (INFO) builder.py:158] Pre-location at node slot 9, (node type: 0, node bb: 4c_Zn), RMSD: 1.79E-01
+[2025-02-10 22:12:20 (DEBUG) locator.py:50] n_slices: 5
+[2025-02-10 22:12:20 (INFO) builder.py:173] RMSD > MIN_RMSD*1.01, relocate Node 9 with 216 trial orientations, RMSD: 1.51E-01
+[2025-02-10 22:12:20 (DEBUG) locator.py:50] n_slices: 3
+[2025-02-10 22:12:20 (INFO) builder.py:158] Pre-location at node slot 10, (node type: 0, node bb: 4c_Zn), RMSD: 1.51E-01
+[2025-02-10 22:12:20 (DEBUG) locator.py:50] n_slices: 3
+[2025-02-10 22:12:20 (INFO) builder.py:158] Pre-location at node slot 11, (node type: 0, node bb: 4c_Zn), RMSD: 1.79E-01
+[2025-02-10 22:12:20 (DEBUG) locator.py:50] n_slices: 5
+[2025-02-10 22:12:20 (INFO) builder.py:173] RMSD > MIN_RMSD*1.01, relocate Node 11 with 216 trial orientations, RMSD: 1.51E-01
+[2025-02-10 22:12:20 (DEBUG) scaler.py:34] Scaler.scale starts.
+[2025-02-10 22:12:20 (DEBUG) scaler.py:191] Max min ratio of edge length: 1.015
+[2025-02-10 22:12:20 (INFO) scaler.py:257] Topology optimization starts.
+[2025-02-10 22:12:20 (INFO) scaler.py:274] MESSAGE: CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH
+[2025-02-10 22:12:20 (INFO) scaler.py:275] SUCCESS: True
+[2025-02-10 22:12:20 (INFO) scaler.py:276] ITER: 18
+[2025-02-10 22:12:20 (INFO) scaler.py:277] OBJ: 0.123
+[2025-02-10 22:12:20 (INFO) builder.py:276] Location at node slot 0, (node type: 0, node bb: 4c_Zn), RMSD: 1.52E-01
+[2025-02-10 22:12:20 (INFO) builder.py:276] Location at node slot 1, (node type: 0, node bb: 4c_Zn), RMSD: 1.52E-01
+[2025-02-10 22:12:20 (INFO) builder.py:276] Location at node slot 2, (node type: 0, node bb: 4c_Zn), RMSD: 1.52E-01
+[2025-02-10 22:12:20 (INFO) builder.py:276] Location at node slot 3, (node type: 0, node bb: 4c_Zn), RMSD: 1.50E-01
+[2025-02-10 22:12:20 (INFO) builder.py:276] Location at node slot 4, (node type: 0, node bb: 4c_Zn), RMSD: 1.52E-01
+[2025-02-10 22:12:20 (INFO) builder.py:276] Location at node slot 5, (node type: 0, node bb: 4c_Zn), RMSD: 1.50E-01
+[2025-02-10 22:12:20 (INFO) builder.py:276] Location at node slot 6, (node type: 0, node bb: 4c_Zn), RMSD: 1.50E-01
+[2025-02-10 22:12:20 (INFO) builder.py:276] Location at node slot 7, (node type: 0, node bb: 4c_Zn), RMSD: 1.50E-01
+[2025-02-10 22:12:20 (INFO) builder.py:276] Location at node slot 8, (node type: 0, node bb: 4c_Zn), RMSD: 1.50E-01
+[2025-02-10 22:12:20 (INFO) builder.py:276] Location at node slot 9, (node type: 0, node bb: 4c_Zn), RMSD: 1.50E-01
+[2025-02-10 22:12:20 (INFO) builder.py:276] Location at node slot 10, (node type: 0, node bb: 4c_Zn), RMSD: 1.50E-01
+[2025-02-10 22:12:20 (INFO) builder.py:276] Location at node slot 11, (node type: 0, node bb: 4c_Zn), RMSD: 1.50E-01
+[2025-02-10 22:12:20 (INFO) builder.py:352] Start placing edges.
+[2025-02-10 22:12:20 (DEBUG) builder.py:389] Edge 12, RMSD: 2.11E-08
+[2025-02-10 22:12:20 (DEBUG) builder.py:389] Edge 13, RMSD: 1.49E-08
+[2025-02-10 22:12:20 (DEBUG) builder.py:389] Edge 14, RMSD: 1.49E-08
+[2025-02-10 22:12:20 (DEBUG) builder.py:389] Edge 15, RMSD: 0.00E+00
+[2025-02-10 22:12:20 (DEBUG) builder.py:389] Edge 16, RMSD: 2.11E-08
+[2025-02-10 22:12:20 (DEBUG) builder.py:389] Edge 17, RMSD: 0.00E+00
+[2025-02-10 22:12:20 (DEBUG) builder.py:389] Edge 18, RMSD: 1.49E-08
+[2025-02-10 22:12:20 (DEBUG) builder.py:389] Edge 19, RMSD: 0.00E+00
+[2025-02-10 22:12:20 (DEBUG) builder.py:389] Edge 20, RMSD: 2.11E-08
+[2025-02-10 22:12:20 (DEBUG) builder.py:389] Edge 21, RMSD: 0.00E+00
+[2025-02-10 22:12:20 (DEBUG) builder.py:389] Edge 22, RMSD: 1.49E-08
+[2025-02-10 22:12:20 (DEBUG) builder.py:389] Edge 23, RMSD: 0.00E+00
+[2025-02-10 22:12:20 (DEBUG) builder.py:389] Edge 24, RMSD: 1.49E-08
+[2025-02-10 22:12:20 (DEBUG) builder.py:389] Edge 25, RMSD: 0.00E+00
+[2025-02-10 22:12:20 (DEBUG) builder.py:389] Edge 26, RMSD: 1.49E-08
+[2025-02-10 22:12:20 (DEBUG) builder.py:389] Edge 27, RMSD: 1.49E-08
+[2025-02-10 22:12:20 (DEBUG) builder.py:389] Edge 28, RMSD: 2.11E-08
+[2025-02-10 22:12:20 (DEBUG) builder.py:389] Edge 29, RMSD: 0.00E+00
+[2025-02-10 22:12:20 (DEBUG) builder.py:389] Edge 30, RMSD: 1.49E-08
+[2025-02-10 22:12:20 (DEBUG) builder.py:389] Edge 31, RMSD: 1.49E-08
+[2025-02-10 22:12:20 (DEBUG) builder.py:389] Edge 32, RMSD: 1.49E-08
+[2025-02-10 22:12:20 (DEBUG) builder.py:389] Edge 33, RMSD: 1.49E-08
+[2025-02-10 22:12:20 (DEBUG) builder.py:389] Edge 34, RMSD: 2.11E-08
+[2025-02-10 22:12:20 (DEBUG) builder.py:389] Edge 35, RMSD: 0.00E+00
+[2025-02-10 22:12:20 (INFO) builder.py:391] Start finding bonds in generated framework.
+[2025-02-10 22:12:20 (INFO) builder.py:392] Start finding bonds in building blocks.
+[2025-02-10 22:12:20 (INFO) builder.py:411] Start finding bonds between building blocks.
+[2025-02-10 22:12:20 (DEBUG) builder.py:436] Bonds on topology edge 12 are connected (np.int64(71), np.int64(0)), (np.int64(72), np.int64(44)).
+[2025-02-10 22:12:20 (DEBUG) builder.py:436] Bonds on topology edge 13 are connected (np.int64(84), np.int64(9)), (np.int64(85), np.int64(39)).
+[2025-02-10 22:12:20 (DEBUG) builder.py:436] Bonds on topology edge 14 are connected (np.int64(97), np.int64(32)), (np.int64(98), np.int64(12)).
+[2025-02-10 22:12:20 (DEBUG) builder.py:436] Bonds on topology edge 15 are connected (np.int64(110), np.int64(7)), (np.int64(111), np.int64(29)).
+[2025-02-10 22:12:20 (DEBUG) builder.py:436] Bonds on topology edge 16 are connected (np.int64(123), np.int64(42)), (np.int64(124), np.int64(14)).
+[2025-02-10 22:12:20 (DEBUG) builder.py:436] Bonds on topology edge 17 are connected (np.int64(136), np.int64(48)), (np.int64(137), np.int64(18)).
+[2025-02-10 22:12:20 (DEBUG) builder.py:436] Bonds on topology edge 18 are connected (np.int64(149), np.int64(15)), (np.int64(150), np.int64(55)).
+[2025-02-10 22:12:20 (DEBUG) builder.py:436] Bonds on topology edge 19 are connected (np.int64(162), np.int64(27)), (np.int64(163), np.int64(20)).
+[2025-02-10 22:12:20 (DEBUG) builder.py:436] Bonds on topology edge 20 are connected (np.int64(175), np.int64(3)), (np.int64(176), np.int64(34)).
+[2025-02-10 22:12:20 (DEBUG) builder.py:436] Bonds on topology edge 21 are connected (np.int64(188), np.int64(37)), (np.int64(189), np.int64(23)).
+[2025-02-10 22:12:20 (DEBUG) builder.py:436] Bonds on topology edge 22 are connected (np.int64(201), np.int64(17)), (np.int64(202), np.int64(10)).
+[2025-02-10 22:12:20 (DEBUG) builder.py:436] Bonds on topology edge 23 are connected (np.int64(214), np.int64(5)), (np.int64(215), np.int64(49)).
+[2025-02-10 22:12:20 (DEBUG) builder.py:436] Bonds on topology edge 24 are connected (np.int64(227), np.int64(52)), (np.int64(228), np.int64(13)).
+[2025-02-10 22:12:20 (DEBUG) builder.py:436] Bonds on topology edge 25 are connected (np.int64(240), np.int64(19)), (np.int64(241), np.int64(2)).
+[2025-02-10 22:12:20 (DEBUG) builder.py:436] Bonds on topology edge 26 are connected (np.int64(253), np.int64(47)), (np.int64(254), np.int64(24)).
+[2025-02-10 22:12:20 (DEBUG) builder.py:436] Bonds on topology edge 27 are connected (np.int64(266), np.int64(4)), (np.int64(267), np.int64(54)).
+[2025-02-10 22:12:20 (DEBUG) builder.py:436] Bonds on topology edge 28 are connected (np.int64(279), np.int64(22)), (np.int64(280), np.int64(57)).
+[2025-02-10 22:12:20 (DEBUG) builder.py:436] Bonds on topology edge 29 are connected (np.int64(292), np.int64(59)), (np.int64(293), np.int64(8)).
+[2025-02-10 22:12:20 (DEBUG) builder.py:436] Bonds on topology edge 30 are connected (np.int64(305), np.int64(33)), (np.int64(306), np.int64(38)).
+[2025-02-10 22:12:20 (DEBUG) builder.py:436] Bonds on topology edge 31 are connected (np.int64(318), np.int64(40)), (np.int64(319), np.int64(35)).
+[2025-02-10 22:12:20 (DEBUG) builder.py:436] Bonds on topology edge 32 are connected (np.int64(331), np.int64(25)), (np.int64(332), np.int64(30)).
+[2025-02-10 22:12:20 (DEBUG) builder.py:436] Bonds on topology edge 33 are connected (np.int64(344), np.int64(28)), (np.int64(345), np.int64(43)).
+[2025-02-10 22:12:20 (DEBUG) builder.py:436] Bonds on topology edge 34 are connected (np.int64(357), np.int64(50)), (np.int64(358), np.int64(45)).
+[2025-02-10 22:12:20 (DEBUG) builder.py:436] Bonds on topology edge 35 are connected (np.int64(370), np.int64(53)), (np.int64(371), np.int64(58)).
+[2025-02-10 22:12:20 (INFO) builder.py:457] Start making Framework instance.
+[2025-02-10 22:12:20 (DEBUG) builder.py:461] Merge list of atoms.
+[2025-02-10 22:12:20 (DEBUG) builder.py:463] Set cell and boundary.
+[2025-02-10 22:12:20 (INFO) builder.py:521] Construction of framework done.

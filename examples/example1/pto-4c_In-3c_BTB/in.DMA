@@ -1,0 +1,21 @@
+log             log.DMA append
+units           real
+atom_style      full
+boundary        p p p
+
+pair_style      lj/cut/coul/long 12.500
+bond_style      harmonic
+angle_style     fourier
+dihedral_style  harmonic
+kspace_style    ewald 0.000001
+
+pair_modify     tail yes mix arithmetic
+special_bonds   lj/coul 0.0 0.0 1.0
+dielectric      1.0
+box tilt        large
+read_data       data.DMA
+
+#### Atom Groupings ####
+group           1        id   1:11
+#### END Atom Groupings ####
+

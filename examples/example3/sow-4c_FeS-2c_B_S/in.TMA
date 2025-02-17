@@ -1,0 +1,21 @@
+log             log.TMA append
+units           real
+atom_style      full
+boundary        p p p
+
+pair_style      lj/cut/coul/long 12.500
+bond_style      harmonic
+angle_style     fourier
+dihedral_style  harmonic
+kspace_style    ewald 0.000001
+
+special_bonds   lj/coul 0.0 0.0 1.0
+pair_modify     tail yes mix arithmetic
+dielectric      1.0
+box tilt        large
+read_data       data.TMA
+
+#### Atom Groupings ####
+group           1        id   1:17
+#### END Atom Groupings ####
+

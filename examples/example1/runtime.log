@@ -1,0 +1,94 @@
+[2025-02-14 13:50:03 (DEBUG) utils.py:296] There are bonds in building block xyz. Reading...
+[2025-02-14 13:50:03 (DEBUG) utils.py:296] There are bonds in building block xyz. Reading...
+[2025-02-14 13:50:03 (DEBUG) database.py:15] Default topology DB is loaded.
+[2025-02-14 13:50:03 (DEBUG) database.py:22] Default building block DB is loaded.
+[2025-02-14 13:50:03 (DEBUG) database.py:85] Topology is loaded from pickle.
+[2025-02-14 13:50:03 (INFO) builder.py:49] No edge building block for type (np.int64(0), np.int64(1)) in edge_bbs.
+[2025-02-14 13:50:03 (DEBUG) builder.py:94] Builder.build starts.
+[2025-02-14 13:50:03 (DEBUG) locator.py:50] n_slices: 4
+[2025-02-14 13:50:03 (DEBUG) locator.py:50] n_slices: 4
+[2025-02-14 13:50:03 (INFO) builder.py:150] == Min RMSD of (node type: 0, node bb: 3c_BTB): 2.25E-02
+[2025-02-14 13:50:03 (DEBUG) locator.py:50] n_slices: 2
+[2025-02-14 13:50:03 (INFO) builder.py:158] Pre-location at node slot 0, (node type: 0, node bb: 3c_BTB), RMSD: 2.25E-02
+[2025-02-14 13:50:03 (DEBUG) locator.py:50] n_slices: 2
+[2025-02-14 13:50:03 (INFO) builder.py:158] Pre-location at node slot 1, (node type: 0, node bb: 3c_BTB), RMSD: 2.25E-02
+[2025-02-14 13:50:03 (DEBUG) locator.py:50] n_slices: 2
+[2025-02-14 13:50:03 (INFO) builder.py:158] Pre-location at node slot 2, (node type: 0, node bb: 3c_BTB), RMSD: 2.25E-02
+[2025-02-14 13:50:03 (DEBUG) locator.py:50] n_slices: 2
+[2025-02-14 13:50:03 (INFO) builder.py:158] Pre-location at node slot 3, (node type: 0, node bb: 3c_BTB), RMSD: 2.25E-02
+[2025-02-14 13:50:03 (DEBUG) locator.py:50] n_slices: 2
+[2025-02-14 13:50:03 (INFO) builder.py:158] Pre-location at node slot 4, (node type: 0, node bb: 3c_BTB), RMSD: 2.25E-02
+[2025-02-14 13:50:03 (DEBUG) locator.py:50] n_slices: 2
+[2025-02-14 13:50:03 (INFO) builder.py:158] Pre-location at node slot 5, (node type: 0, node bb: 3c_BTB), RMSD: 2.25E-02
+[2025-02-14 13:50:03 (DEBUG) locator.py:50] n_slices: 2
+[2025-02-14 13:50:03 (INFO) builder.py:158] Pre-location at node slot 6, (node type: 0, node bb: 3c_BTB), RMSD: 2.25E-02
+[2025-02-14 13:50:03 (DEBUG) locator.py:50] n_slices: 2
+[2025-02-14 13:50:03 (INFO) builder.py:158] Pre-location at node slot 7, (node type: 0, node bb: 3c_BTB), RMSD: 2.25E-02
+[2025-02-14 13:50:03 (DEBUG) locator.py:50] n_slices: 5
+[2025-02-14 13:50:03 (DEBUG) locator.py:50] n_slices: 5
+[2025-02-14 13:50:03 (INFO) builder.py:150] == Min RMSD of (node type: 1, node bb: 4c_In): 3.94E-01
+[2025-02-14 13:50:03 (DEBUG) locator.py:50] n_slices: 3
+[2025-02-14 13:50:03 (INFO) builder.py:158] Pre-location at node slot 8, (node type: 1, node bb: 4c_In), RMSD: 3.94E-01
+[2025-02-14 13:50:03 (DEBUG) locator.py:50] n_slices: 3
+[2025-02-14 13:50:03 (INFO) builder.py:158] Pre-location at node slot 9, (node type: 1, node bb: 4c_In), RMSD: 3.94E-01
+[2025-02-14 13:50:03 (DEBUG) locator.py:50] n_slices: 3
+[2025-02-14 13:50:03 (INFO) builder.py:158] Pre-location at node slot 10, (node type: 1, node bb: 4c_In), RMSD: 3.94E-01
+[2025-02-14 13:50:03 (DEBUG) locator.py:50] n_slices: 3
+[2025-02-14 13:50:03 (INFO) builder.py:158] Pre-location at node slot 11, (node type: 1, node bb: 4c_In), RMSD: 3.94E-01
+[2025-02-14 13:50:03 (DEBUG) locator.py:50] n_slices: 3
+[2025-02-14 13:50:03 (INFO) builder.py:158] Pre-location at node slot 12, (node type: 1, node bb: 4c_In), RMSD: 3.94E-01
+[2025-02-14 13:50:03 (DEBUG) locator.py:50] n_slices: 3
+[2025-02-14 13:50:03 (INFO) builder.py:158] Pre-location at node slot 13, (node type: 1, node bb: 4c_In), RMSD: 3.94E-01
+[2025-02-14 13:50:03 (DEBUG) scaler.py:34] Scaler.scale starts.
+[2025-02-14 13:50:03 (DEBUG) scaler.py:191] Max min ratio of edge length: 1.047
+[2025-02-14 13:50:03 (INFO) scaler.py:257] Topology optimization starts.
+[2025-02-14 13:50:03 (INFO) scaler.py:274] MESSAGE: CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH
+[2025-02-14 13:50:03 (INFO) scaler.py:275] SUCCESS: True
+[2025-02-14 13:50:03 (INFO) scaler.py:276] ITER: 55
+[2025-02-14 13:50:03 (INFO) scaler.py:277] OBJ: 0.048
+[2025-02-14 13:50:03 (INFO) builder.py:276] Location at node slot 0, (node type: 0, node bb: 3c_BTB), RMSD: 7.25E-03
+[2025-02-14 13:50:03 (INFO) builder.py:276] Location at node slot 1, (node type: 0, node bb: 3c_BTB), RMSD: 8.76E-03
+[2025-02-14 13:50:03 (INFO) builder.py:276] Location at node slot 2, (node type: 0, node bb: 3c_BTB), RMSD: 6.11E-03
+[2025-02-14 13:50:03 (INFO) builder.py:276] Location at node slot 3, (node type: 0, node bb: 3c_BTB), RMSD: 8.06E-03
+[2025-02-14 13:50:03 (INFO) builder.py:276] Location at node slot 4, (node type: 0, node bb: 3c_BTB), RMSD: 9.68E-03
+[2025-02-14 13:50:03 (INFO) builder.py:276] Location at node slot 5, (node type: 0, node bb: 3c_BTB), RMSD: 8.15E-03
+[2025-02-14 13:50:03 (INFO) builder.py:276] Location at node slot 6, (node type: 0, node bb: 3c_BTB), RMSD: 9.02E-04
+[2025-02-14 13:50:03 (INFO) builder.py:276] Location at node slot 7, (node type: 0, node bb: 3c_BTB), RMSD: 2.52E-03
+[2025-02-14 13:50:03 (INFO) builder.py:276] Location at node slot 8, (node type: 1, node bb: 4c_In), RMSD: 5.12E-01
+[2025-02-14 13:50:03 (INFO) builder.py:276] Location at node slot 9, (node type: 1, node bb: 4c_In), RMSD: 2.65E-01
+[2025-02-14 13:50:03 (INFO) builder.py:276] Location at node slot 10, (node type: 1, node bb: 4c_In), RMSD: 5.09E-01
+[2025-02-14 13:50:03 (INFO) builder.py:276] Location at node slot 11, (node type: 1, node bb: 4c_In), RMSD: 5.13E-01
+[2025-02-14 13:50:03 (INFO) builder.py:276] Location at node slot 12, (node type: 1, node bb: 4c_In), RMSD: 2.85E-01
+[2025-02-14 13:50:03 (INFO) builder.py:276] Location at node slot 13, (node type: 1, node bb: 4c_In), RMSD: 2.79E-01
+[2025-02-14 13:50:03 (INFO) builder.py:352] Start placing edges.
+[2025-02-14 13:50:03 (INFO) builder.py:391] Start finding bonds in generated framework.
+[2025-02-14 13:50:03 (INFO) builder.py:392] Start finding bonds in building blocks.
+[2025-02-14 13:50:03 (INFO) builder.py:411] Start finding bonds between building blocks.
+[2025-02-14 13:50:03 (DEBUG) builder.py:445] Bonds on topology edge 14 are connected (np.int64(351), np.int64(39)).
+[2025-02-14 13:50:03 (DEBUG) builder.py:445] Bonds on topology edge 15 are connected (np.int64(368), np.int64(81)).
+[2025-02-14 13:50:03 (DEBUG) builder.py:445] Bonds on topology edge 16 are connected (np.int64(123), np.int64(384)).
+[2025-02-14 13:50:03 (DEBUG) builder.py:445] Bonds on topology edge 17 are connected (np.int64(41), np.int64(402)).
+[2025-02-14 13:50:03 (DEBUG) builder.py:445] Bonds on topology edge 18 are connected (np.int64(167), np.int64(349)).
+[2025-02-14 13:50:03 (DEBUG) builder.py:445] Bonds on topology edge 19 are connected (np.int64(386), np.int64(83)).
+[2025-02-14 13:50:03 (DEBUG) builder.py:445] Bonds on topology edge 20 are connected (np.int64(209), np.int64(367)).
+[2025-02-14 13:50:03 (DEBUG) builder.py:445] Bonds on topology edge 21 are connected (np.int64(385), np.int64(250)).
+[2025-02-14 13:50:03 (DEBUG) builder.py:445] Bonds on topology edge 22 are connected (np.int64(401), np.int64(291)).
+[2025-02-14 13:50:03 (DEBUG) builder.py:445] Bonds on topology edge 23 are connected (np.int64(420), np.int64(249)).
+[2025-02-14 13:50:03 (DEBUG) builder.py:445] Bonds on topology edge 24 are connected (np.int64(418), np.int64(292)).
+[2025-02-14 13:50:03 (DEBUG) builder.py:445] Bonds on topology edge 25 are connected (np.int64(207), np.int64(436)).
+[2025-02-14 13:50:03 (DEBUG) builder.py:445] Bonds on topology edge 26 are connected (np.int64(334), np.int64(434)).
+[2025-02-14 13:50:03 (DEBUG) builder.py:445] Bonds on topology edge 27 are connected (np.int64(435), np.int64(40)).
+[2025-02-14 13:50:03 (DEBUG) builder.py:445] Bonds on topology edge 28 are connected (np.int64(419), np.int64(166)).
+[2025-02-14 13:50:03 (DEBUG) builder.py:445] Bonds on topology edge 29 are connected (np.int64(366), np.int64(165)).
+[2025-02-14 13:50:03 (DEBUG) builder.py:445] Bonds on topology edge 30 are connected (np.int64(125), np.int64(400)).
+[2025-02-14 13:50:03 (DEBUG) builder.py:445] Bonds on topology edge 31 are connected (np.int64(403), np.int64(333)).
+[2025-02-14 13:50:03 (DEBUG) builder.py:445] Bonds on topology edge 32 are connected (np.int64(352), np.int64(293)).
+[2025-02-14 13:50:03 (DEBUG) builder.py:445] Bonds on topology edge 33 are connected (np.int64(350), np.int64(208)).
+[2025-02-14 13:50:03 (DEBUG) builder.py:445] Bonds on topology edge 34 are connected (np.int64(369), np.int64(251)).
+[2025-02-14 13:50:03 (DEBUG) builder.py:445] Bonds on topology edge 35 are connected (np.int64(335), np.int64(383)).
+[2025-02-14 13:50:03 (DEBUG) builder.py:445] Bonds on topology edge 36 are connected (np.int64(82), np.int64(437)).
+[2025-02-14 13:50:03 (DEBUG) builder.py:445] Bonds on topology edge 37 are connected (np.int64(417), np.int64(124)).
+[2025-02-14 13:50:03 (INFO) builder.py:457] Start making Framework instance.
+[2025-02-14 13:50:03 (DEBUG) builder.py:461] Merge list of atoms.
+[2025-02-14 13:50:03 (DEBUG) builder.py:463] Set cell and boundary.
+[2025-02-14 13:50:03 (INFO) builder.py:521] Construction of framework done.
