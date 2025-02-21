@@ -55,25 +55,25 @@ make yes-extra-molecule
 
 Replace the `fix_ti_spring.cpp` in the `LAMMPS/src` folder with the provided one, which is slightly modified for the final NES step calculation, and compile. 
 
-`cp ../../fix_ti_spring.cpp .`
-
-`make mpi -j8` or `make seriel -j8`
-
-`export LAMMPS_PATH=\`pwd\`/lmp_mpi`
+```
+cp ../../fix_ti_spring.cpp .
+make mpi -j8` or `make seriel -j8
+export LAMMPS_PATH=`pwd`/lmp_mpi
+```
 
 ## Navigating the Repo
 
-There are three tutorial notebook in the example folder showing the procedures for building MOF polymorph and compute free energies. Example1, example2, and example3  include a ZJU-28 series MOF, a ZIF series MOF, and a Fe4S4-BDT series MOF. One can adapt the notebook or use the command lines to run the pipeline shown in the next section. 
+There are three tutorial notebooks in the `example` folder showing the procedures for building MOF polymorphs and computing free energies. `example1`, `example2`, and `example3` include a ZJU-28 series MOF, a ZIF series MOF, and an Fe₄S₄-BDT series MOF, respectively. You can adapt the notebooks or use the command lines in the next section to run the pipeline.
 
-The simulation_utilities folder contains all the scripts of running the free energy calculation on the Fe4S4-BDT MOFs with different cations using the ToBaCCo codes and cif2lammps. There are also guidelines in this folder for running the simulations using this set of tools.
+The `simulation_utilities` folder contains all the scripts for running free energy calculations on Fe₄S₄-BDT MOFs with different cations using the ToBaCCo codes and cif2lammps. This folder also includes guidelines for running simulations using this set of tools.
 
-The databank_iron-sulfur-MOFs includes all the relaxed structures of the iron-sulfur MOFs studied in the paper, along with computed free energies, potential energies, and geometric properties. The PDF files are stored in the H5 files that can be accessed using h5py. 
+The `databank_iron-sulfur-MOFs` folder includes all the relaxed structures of the iron-sulfur MOFs studied in the paper, along with computed free energies, potential energies, and geometric properties. The PDF files are stored in H5 files that can be accessed using `h5py`.
 
 ## MOF Generation and Equilibration
 
-The `gen` command is used to generate a MOF polymorph, for which a linker and a metal node in xyz format are required. You can generate bare frameworks or specify a small molecule to add into an ionic MOF. If the name of the small molecule is available in the `small_molecule` folder (DMA, TMA, TEA, TPA, TPP, MPA, MNP), then the molecule files for small molecules will be created along with the generated MOF. Otherwise, you would need to provide a small molecule in cif format with atomic charges.
+The `gen` command is used to generate a MOF polymorph, which requires a linker and a metal node in XYZ format. You can generate bare frameworks or specify a small molecule to add to an ionic MOF. If the name of the small molecule is available in the `small_molecule` folder (`DMA`, `TMA`, `TEA`, `TPA`, `TPP`, `MPA`, `MNP`), use those files. Otherwise, you need to provide a small molecule in CIF format with atomic charges.
 
-The `run_equi` command generates inputs for the small molecule deposition and equilibration. After equilibration, an equilibrated structure in cif format is provided along with the potential energy at 300 K and 0 K for preliminary screening.
+The `run_equi` command generates input files for small molecule deposition and equilibration. After equilibration, a CIF file of the equilibrated structure is provided, along with the potential energy at 300 K and 0 K for preliminary screening.
 
 Example:
 
