@@ -57,7 +57,7 @@ Replace the `fix_ti_spring.cpp` in the `LAMMPS/src` folder with the provided one
 
 ```
 cp ../../fix_ti_spring.cpp .
-make mpi -j8` or `make seriel -j8
+make mpi -j8 or make seriel -j8
 export LAMMPS_PATH=`pwd`/lmp_mpi
 ```
 
