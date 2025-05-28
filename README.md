@@ -1,5 +1,6 @@
 
 # MOF Polymorph Generation and Free Energy Calculation
+Find the publication [here](https://pubs.acs.org/doi/full/10.1021/jacs.4c16341)
 
 ## Prerequisites
 
